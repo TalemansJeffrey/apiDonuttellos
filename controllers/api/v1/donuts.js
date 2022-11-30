@@ -44,7 +44,7 @@ let create = (req, res, next) => {
 
 let getAll = (req, res) => {
 
-    Donut.find({"bedrijfsnaam": "CheffrenDesigns"}, (err, docs) => {
+    Donut.find((err, docs) => {
 
         if(!err) {
             res.json({

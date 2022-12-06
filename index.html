@@ -8,63 +8,128 @@
 </head>
 <body>
   <div class="donutConfig">
-    <form action="#" class="configurator">
+    <div class="donutConfig__title">Donut Configurator</div>
+      <div class="donutConfig__donutDeeg">
+        <!--select menu-->
+        <div class="donutConfig__donutDeeg__select">
+          <label for="donutDeeg">Donut deeg</label>
+          <select name="donutDeeg" id="donutDeeg">
+            <option value="wit">Wit</option>
+            <option value="bruin">Bruin</option>
+          </select>
+      </div>
+      <div class="donutConfig__vulling">
+          <div class="donutConfig__donutVulling__select">
+            <label for="donutVulling">Donut vulling</label>
+            <select name="donutVulling" id="donutVulling">
+              <option value="geen">Geen</option>
+              <option value="chocolade">chocolade</option>
+              <option value="aardbei">aardbei</option>
+              <option value="speculoos">speculoos</option>
+              <option value="rijstpap">rijstpap</option>
+            </select>
 
-      <h2>Donut:</h2>
-      <label for="donutDeeg">DonutDeeg</label>
-      <select name="donutDeeg" id="donutDeeg">
-        <option class="dropDown--chocolade" value="chocolade">Chocolade</option>
-        <option class="dropDown--vanille" value="vanille">Vanille</option>
-        <option class="dropDown--aardbei" value="aardbei">Aardbei</option>
-      </select>
+      </div>
+      <div class="donutConfig__glazuur">
+        <div class="donutConfig__donutGlazuur__select">
+          <label for="donutGlazuur">Donut Glazuur</label>
+          <select name="donutGlazuur" id="donutGlazuur">
+            <option value="geen">Geen</option>
+            <option value="chocolade">chocolade</option>
+            <option value="aardbei">aardbei</option>
+            <option value="speculoos">speculoos</option>
+            <option value="pistache">pistache</option>
+            <option value="snickers">Snickers</option>
+            <option value="oreo">Oreo</option>
+            <option value="Limoen">Limoen</option>
+            <option value="kokos">kokos</option>
+            <option value="kersen">Kersen</option>
+            <option value="caramel">Caramel</option>
+            <option value="kaneel">Kaneel</option>
+            <option value="saltedCaramel">Salted caramel</option>
+            <option value="nuttella">Nutella</option>
+            <option value="Cappuccino">Cappuccino</option>
+            <option value="brownie">Brownie</option>
+            <option value="banaan">Banaan</option>
+            <option value="pindakaas">Pindakaas</option>
+            <option value="ruby">Ruby</option>
+            <option value="suiker">Suiker</option>
+            <option value="malteser">Malteser</option>
+            <option value="sinaas">Sinaasappel</option>
+            <option value="Twix">Twix</option>
+            <option value="leo">Leo</option>
+          </select>
+        </div>
+      </div>
+      <div class="donutConfig__topping">
+        <div class="donutConfig__donutTopping__select">
+            <label for="donutTopping">Donut topping</label>
+              <select name="donutTopping" id="donutTopping">
+                <option value="geen">Geen</option>
+                <option value="chocolade">chocolade</option>
+                <option value="aardbei">aardbei</option>
+                <option value="speculoos">speculoos</option>
+                <option value="pistache">pistache</option>
+                <option value="snickers">Snickers</option>
+                <option value="oreo">Oreo</option>
+                <option value="Limoen">Limoen</option>
+                <option value="kokos">kokos</option>
+                <option value="kersen">Kersen</option>
+                <option value="caramel">Caramel</option>
+                <option value="kaneel">Kaneel</option>
+                <option value="saltedCaramel">Salted caramel</option>
+                <option value="nuttella">Nutella</option>
+                <option value="Cappuccino">Cappuccino</option>
+                <option value="brownie">Brownie</option>
+                <option value="banaan">Banaan</option>
+                <option value="pindakaas">Pindakaas</option>
+                <option value="ruby">Ruby</option>
+                <option value="suiker">Suiker</option>
+                <option value="malteser">Malteser</option>
+                <option value="sinaas">Sinaasappel</option>
+                <option value="Twix">Twix</option>
+                <option value="leo">Leo</option>
 
-      <label for="donutVulling">DonutVulling</label>
-      <select class="dropDown" name="donutVulling" id="donutVulling">
-        <option class="dropDown--chocolade" value="chocolade">Chocolade</option>
-        <option class="dropDown--vanille" value="vanille">Vanille</option>
-        <option class="dropDown--aardbei"value="aardbei">Aardbei</option>
-      </select>
+              </select>
 
-      <label for="donutTopping">DonutTopping</label>
-      <select class="dropDown" name="donutTopping" id="donutTopping">
-        <option class="dropDown--chocolade" value="chocolade">Chocolade</option>
-        <option class="dropDown--chocolade" value="vanille">Vanille</option>
-        <option  class="dropDown--aardbei" value="aardbei">Aardbei</option>
-      </select>
-
-      <label for="donutGarnituur">DonutGarnituur</label>
-      <select class="dropDown" name="donutGarnituur" id="donutGarnituur">
-        <option class="dropDown--chocolade" value="chocolade">Chocolade</option>
-        <option class="dropDown--vanille" value="vanille">Vanille</option>
-        <option class="dropDown--aardbei" value="aardbei">Aardbei</option>
-      </select>
-
-      <label for="logo">Logo</label>
-      <input class="logo" type="file" accept="/image/*">
-
-      <h2>Bedrijfsgegevens</h2>
-      <label for="bedrijfsnaam">Bedrijfsnaam</label>
-      <input class="bedrijfsnaam"type="text" name="bedrijfsnaam" id="bedrijfsnaam">
-
-      <label for="straatnaam">Straatnaam</label>
-      <input type="text" name="adres" id="adres">
-
-      <label for="huisnummer">Huisnummer + postbus</label>
-      <input type="text" name="huisnummer" id="huisnummer">
-
-      <label for="postcode">Postcode</label>
-      <input type="number" name="postcode" id="postcode" minlength="4" maxlength="4">
-
-      <label for="plaats">Plaats</label>
-      <input type="text" name="plaats" id="plaats">
-
-      <label for="telefoonnummer">Telefoonnummer</label>
-      <input type="number" name="telefoonnummer" id="telefoonnummer" minlength="10" maxlength="10">
-
-      <label for="email">Email</label>
-      <input type="text" name="email" id="email">
-
-      <input class="submit"type="submit">
+        </div>
+      </div>
+      <div class="donutConfig__gegevens">
+        <div class="donutConfig__gegevens__naam">
+          <label for="naam">Naam</label>
+          <input type="text" name="naam" id="naam">
+        </div>
+        <div class="donutConfig__gegevens__email">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email">
+        </div>
+        <div class="donutConfig__gegevens__telefoon">
+          <label for="telefoon">Telefoon</label>
+          <input type="tel" name="telefoon" id="telefoon">
+        </div>
+        <div class="donutConfig__gegevens__adres">
+          <label for="adres">Adres</label>
+          <input type="text" name="adres" id="adres">
+        </div>
+        <div class="donutConfig__gegevens__huisnr">
+          <label for="huisnr">Huisnummer</label>
+          <input type="number" name="huisnr" id="huisnr">
+        </div>
+        <div class="donutConfig__gegevens__postcode">
+          <label for="postcode">Postcode</label>
+          <input type="text" name="postcode" id="postcode">
+        </div>
+        <div class="donutConfig__gegevens__woonplaats">
+          <label for="woonplaats">Woonplaats</label>
+          <input type="text" name="woonplaats" id="woonplaats">
+        </div>
+        <div class="donutConfig__gegevens__logo">
+          <label for="logo">Logo</label>
+          <input type="file" name="logo" id="logo" >
+        </div>
+        <button class="submitDonut">Bestel donut</button>
+     
+        </div>
 
 
 
@@ -72,7 +137,25 @@
 
 
 
-    </form>
+
+
+
+
+
+      </div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
   
   </div>
 

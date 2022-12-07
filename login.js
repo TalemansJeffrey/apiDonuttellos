@@ -32,8 +32,10 @@ let btnLogin= document.querySelector(".login button").addEventListener("click", 
 
                 let token = json.data.token;
                 localStorage.setItem('token', token);
-                window.location.href = "api/v1/donuts";
+                window.location.href = "index.html";
 
+                //display the username and password in the input fields
+               
             }
             else {
                 let feedback = document.querySelector(".alert");

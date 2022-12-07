@@ -1,5 +1,4 @@
 const Donut = require('../../../models/Donuts');
-
 let create = (req, res, next) => {
 
     let donut = new Donut();
@@ -15,11 +14,10 @@ let create = (req, res, next) => {
     donut.donutTopping = req.body.donutTopping;
     donut.donutGlazuur = req.body.donutGlazuur;
     donut.logo = req.body.logo;
+    donut.ready = false;
 
-    console.log(donut);
-
+-
     donut.save((err,doc) => {
-
 
         if(!err) {
         res.json({
@@ -29,11 +27,12 @@ let create = (req, res, next) => {
                 "donut": doc
             }
         })
+        console.log(doc);
     }
     else {
         res.json({
             "status": "error",
-            "message": "Kon de donut niet opslaan"
+            "message": err
         })
     }
     })
@@ -57,5 +56,72 @@ let getAll = (req, res) => {
     })
     }
 
+let getOne = (req, res) => {
+    //get the donut with th id
+    Donut.findById(req.params.id, (err, doc) => {
+
+        if (!err) {
+            res.json({
+                "status": "success",
+                "data": {
+                    "donut": doc
+
+                }
+            })
+        }
+    })
+
+}
+
+//delete donut
+//only when logged in
+
+let deleteOne = (req, res) => {
+
+    Donut.findByIdAndRemove(req.params.id, (err, doc) => {
+
+        if (!err) {
+            res.json({
+                "status": "success",
+                "data": {
+                    "donut": doc
+                }
+                ,
+                "message": "Donut is succesvol verwijderd"
+            })
+        }
+    })
+}
+
+let updateStatus = (req, res) => {
+
+    let user = req.user.id;
+    let donutId = req.params.id;
+
+    Donut.findOneAndUpdate({
+
+        user: user,
+        _id: donutId
+    },
+    {
+        ready: req.body.ready
+    })
+    .then(doc => {
+        res.json(doc);
+    })
+    .catch(err => {
+        res.json(err);
+    });
+
+
+}
+
+
+
+
+
     module.exports.create = create;
     module.exports.getAll = getAll;
+    module.exports.getOne = getOne;
+    module.exports.deleteOne = deleteOne;
+    module.exports.updateStatus = updateStatus;

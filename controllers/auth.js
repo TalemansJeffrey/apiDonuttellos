@@ -76,13 +76,28 @@ const login = async (req, res, next) => {
             })
             });
             
+    };
+    //if user is logged in and has a token, get the username and password from the token
+    const getInfo = (req, res) => {
+
+        let token = req.headers.authorization.split(' ')[1];
+        let decoded = jwt.verify(token, "DonutelloSecret");
+
+        res.json({
+            "status": "success",
+            "data": {
+                "username": decoded.username,
+
+
+            }
+        })
 
 
 
 
+    }
 
 
-}
 
 
 
@@ -95,3 +110,4 @@ const login = async (req, res, next) => {
 
 //module.exports.signup = signup;
 module.exports.login = login;
+module.exports.getInfo = getInfo;

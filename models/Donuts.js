@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const donuttelloSchema = new Schema({
     bedrijfsnaam: {type: String, required: true},
     straat: {type: String, required: true},
@@ -14,9 +15,8 @@ const donuttelloSchema = new Schema({
     donutVulling : {type: String , required: true},
     donutTopping : {type: String , required: true},
     donutGlazuur : {type: String , required: true},
-    logo : {type: String  /*contains jpg, png, gif */ , allowed : [/\.jpg$/, /\.png$/, /\.gif$/], required: true}
-
-
+    logo : {type: String},
+    ready: {type: Boolean}
 });
 
 const Donut = mongoose.model('Donut', donuttelloSchema);

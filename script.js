@@ -1,4 +1,5 @@
-let button = document.querySelector(".submitDonut").addEventListener("click", ()=> {
+
+let button = document.querySelector(".submitDonut").addEventListener("click", (e)=> {
 
 let donutDeeg = document.querySelector('#donutDeeg').value;
 let donutVulling = document.querySelector('#donutVulling').value;
@@ -26,7 +27,6 @@ else {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mzg3NzBiOGU2NTNjOTY1ZDVlYThlNDQiLCJ1c2VybmFtZSI6IkRvbnV0dGVsbDAwIiwiaWF0IjoxNjY5ODIwNjAwfQ.jLsKYzKQFZQWSUJHuWIjAcLoQBYOiECqfCU5GdGjHnI"
 
         }
         ,
@@ -42,7 +42,8 @@ else {
             "straatnr": huisnr,
             "postcode": postcode,
             "gemeente": woonplaats,
-            "logo": logo
+            "logo": logo,
+            "ready": "false"
             
         })
         
@@ -50,24 +51,47 @@ else {
         return response.json();
     }
     ).then(json => {
-       console.log(json);   
+        if (json.status === "success") {
+            let donut = `<div class="donuts">
+            <img src="${json.data.donut.logo}" alt="donut">
+            <h2>${json.data.donut.bedrijfsnaam}</h2>
+            <p>${json.data.donut.donutDeeg}</p>
+            <p>${json.data.donut.donutVulling}</p>
+            <p>${json.data.donut.donutGlazuur}</p>
+            <p>${json.data.donut.donutTopping}</p>
+            <p>${json.data.donut.email}</p>
+            <p>${json.data.donut.telefoon}</p>
+            <p>${json.data.donut.straat}</p>
+            <p>${json.data.donut.straatnr}</p>
+            <p>${json.data.donut.postcode}</p>
+            <p>${json.data.donut.gemeente}</p>
+            <a>Bestel</a>
+            <a>Wijzig</a>
+            <a class="donut__delete" href="#" data-id="${json.data.donut._id}">Verwijder</a>
+            </div>
+            `
+            document.querySelector(".donuts").insertAdjacentHTML("afterend", donut);
+
+
+
+
+        }
+        else {
+            alert("Donut niet toegevoegd");
+        }
     }
+    
     )
 }
+e.preventDefault();
 })
 
 
 
+
+
+
             
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,0 +1,9 @@
+{
+    "Database": {
+        "conn": "mongodb://localhost:27017/donuttello"
+    },
+    "jwt": {
+        "secret": "DonutelloSectet"
+    }
+    
+}   

@@ -112,8 +112,6 @@ let updateStatus = (req, res) => {
     .catch(err => {
         res.json(err);
     });
-
-
 }
 
 

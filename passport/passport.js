@@ -1,5 +1,6 @@
 const passport = require('passport');
 const User = require('../models/User');
+const config = require('config');
 
 //verander authenticate naar createStrategy
 //passpoort wordt huer geconfigureerd
@@ -12,9 +13,9 @@ passport.deserializeUser(User.deserializeUser());
 //webtoken strategy
 var JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
-var opts = {}
+var opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken(); //key uit header halen
-opts.secretOrKey = 'DonutelloSecret';
+opts.secretOrKey = config.get('jwt.secret'); //secret uit config halen
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     User.findOne({id: jwt_payload.uid}, function(err, user) {
         if (err) {

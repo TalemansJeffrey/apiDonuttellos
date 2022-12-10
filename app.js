@@ -4,16 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
-const multer = require('multer');
+//const multer = require('multer');
+const config = require('config');
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let donutRouter = require('./routes/api/v1/donuts');
+//let accountRouter = require('./routes/api/v1/accounts');
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/donuttello', {useNewUrlParser: true});
+mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true});
+
 
 
 var app = express();
@@ -31,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 app.use('/api/v1/donuts', donutRouter);
 
 

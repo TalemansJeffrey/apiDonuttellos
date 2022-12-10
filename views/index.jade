@@ -1,5 +1,32 @@
-extends layout
+doctype html
+html(lang="nl")
+  head
+    title= pageTitle
+    script(type='text/javascript').
+  body
+    h1 Donuttello API
+    p Welkom bij de Donuttello API! 
+    strong Hier vind je alles om Donuts te kunnen maken op jouw maat. Je kan ze hier makkelijk stockeren.
+    p
+      strong GET /donuts
+      |  Geeft een lijst van alle donuts terug.
+    p
+      strong GET /donuts/:id
+      |  Geeft een specifieke donut terug.
+    p
+      strong POST /donuts
+      |  Maakt een nieuwe donut aan.
+    p
+      strong PUT /donuts/:id
+      |  Past een bestaande donut aan.
+    p
+      strong DELETE /donuts/:id
+      |  Verwijdert een bestaande donut.
 
-block content
-  h1= title
-  p Welcome to #{title}
+    p Alle functionaliteiten (behalve de POST), zijn enkel toegankelijk aan de hand van een account en een token.
+    p
+      strong POST /login
+      |  Geeft een token terug aan de hand van een account.
+    
+
+    

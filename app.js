@@ -15,7 +15,7 @@ let donutRouter = require('./routes/api/v1/donuts');
 
 const mongoose = require('mongoose');
 
-mongoose.connect(config.get('Database.conn'), {useNewUrlParser: true});
+mongoose.connect(process.env.dbconn ||config.get('Database.conn'), {useNewUrlParser: true});
 
 
 

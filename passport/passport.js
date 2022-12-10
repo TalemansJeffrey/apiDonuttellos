@@ -15,7 +15,7 @@ var JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 var opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken(); //key uit header halen
-opts.secretOrKey = config.get('jwt.secret'); //secret uit config halen
+opts.secretOrKey = process.env.secret || config.get('jwt.secret'); //secret uit config halen
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     User.findOne({id: jwt_payload.uid}, function(err, user) {
         if (err) {

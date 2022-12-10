@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken'); //webtoken
 const config = require('config'); //config
 
 
-const signup = async (req, res) => {
+/*const signup = async (req, res) => {
 
     //token meegeven zodra je geresgisterd bent
     let username = req.body.username;
@@ -41,7 +41,7 @@ const signup = async (req, res) => {
 
 
 
-};
+};*/
 
 const login = async (req, res, next) => {
 
@@ -60,7 +60,7 @@ const login = async (req, res, next) => {
             let token = jwt.sign({
                 uid: result.user._id,
                 username: result.user.username
-            }, config.get('jwt.secret'));
+            },process.env.secret || config.get('jwt.secret'));
 
 
 
@@ -95,5 +95,5 @@ const login = async (req, res, next) => {
 
 
 
-module.exports.signup = signup;
+//module.exports.signup = signup;
 module.exports.login = login;

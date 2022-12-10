@@ -8,24 +8,24 @@ html(lang="nl")
     p Welkom bij de Donuttello API! 
     strong Hier vind je alles om Donuts te kunnen maken op jouw maat. Je kan ze hier makkelijk stockeren.
     p
-      strong GET /donuts
+      strong GET api/v1/donuts
       |  Geeft een lijst van alle donuts terug.
     p
-      strong GET /donuts/:id
+      strong GET api/v1/donuts/:id
       |  Geeft een specifieke donut terug.
     p
-      strong POST /donuts
+      strong POST api/v1/donuts
       |  Maakt een nieuwe donut aan.
     p
-      strong PUT /donuts/:id
+      strong PUT api/v1/donuts/:id
       |  Past een bestaande donut aan.
     p
-      strong DELETE /donuts/:id
+      strong DELETE api/v1/donuts/:id
       |  Verwijdert een bestaande donut.
 
     p Alle functionaliteiten (behalve de POST), zijn enkel toegankelijk aan de hand van een account en een token.
     p
-      strong POST /login
+      strong POST users/login
       |  Geeft een token terug aan de hand van een account.
     
 

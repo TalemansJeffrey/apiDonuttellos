@@ -2,15 +2,14 @@ const express = require('express');
 const router = express.Router();
 const donutController = require('../../../controllers/api/v1/donuts');
 //get passport out of passport folder
-const passport = require('../../../passport/passport')
-
+const passport = require('../../../passport/passport');
 
 
 router.post("/",donutController.create);
     
-router.get("/", passport.authenticate('jwt', { session: false }),donutController.getAll);
+router.get("/",donutController.getAll);
 
-router.get("/:id", passport.authenticate('jwt', { session: false }),donutController.getOne);
+router.get("/:id",donutController.getOne);
 
 router.delete("/:id", passport.authenticate('jwt', { session: false }),donutController.deleteOne);
 

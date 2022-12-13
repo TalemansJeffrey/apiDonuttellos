@@ -16,7 +16,8 @@ const donuttelloSchema = new Schema({
     donutTopping : {type: String , required: true},
     donutGlazuur : {type: String , required: true},
     logo : {type: String},
-    ready: {type: Boolean}
+    ready: {type: Boolean},
+    hoeveelheid: {type: Number, required: true}
 });
 
 const Donut = mongoose.model('Donut', donuttelloSchema);

@@ -1,4 +1,8 @@
 const Donut = require('../../../models/Donuts');
+//upload image
+  
+
+
 let create = (req, res, next) => {
 
     let donut = new Donut();
@@ -13,8 +17,11 @@ let create = (req, res, next) => {
     donut.donutVulling = req.body.donutVulling;
     donut.donutTopping = req.body.donutTopping;
     donut.donutGlazuur = req.body.donutGlazuur;
+    //donutlogo wordt opgeslagen in de database en naar uploads gestuurd
+    //donut.logo = req.file.filename;
     donut.logo = req.body.logo;
     donut.ready = false;
+    donut.hoeveelheid = req.body.hoeveelheid;
 
 -
     donut.save((err,doc) => {

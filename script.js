@@ -23,7 +23,7 @@ if (donutDeeg === "" || donutVulling === "" || donutGlazuur === "" || donutToppi
     
 }
 else {
-    fetch('http://localhost:3000/api/v1/donuts', {
+    fetch('https://donuttelloapi.onrender.com/api/v1/donuts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -43,7 +43,8 @@ else {
             "postcode": postcode,
             "gemeente": woonplaats,
             "logo": logo,
-            "ready": "false"
+            "ready": "false",
+            "hoeveelheid": "5"
             
         })
         

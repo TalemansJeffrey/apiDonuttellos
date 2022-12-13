@@ -6,6 +6,7 @@ const Donut = require('../../../models/Donuts');
 let create = (req, res, next) => {
 
     let donut = new Donut();
+    donut.donutNaam = req.body.donutNaam;
     donut.bedrijfsnaam = req.body.bedrijfsnaam;
     donut.straat = req.body.straat;
     donut.straatnr = req.body.straatnr;
@@ -22,6 +23,7 @@ let create = (req, res, next) => {
     donut.logo = req.body.logo;
     donut.ready = false;
     donut.hoeveelheid = req.body.hoeveelheid;
+    
 
 -
     donut.save((err,doc) => {

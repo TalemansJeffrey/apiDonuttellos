@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 
 const donuttelloSchema = new Schema({
+    donutNaam: {type: String, required: true},
     bedrijfsnaam: {type: String, required: true},
     straat: {type: String, required: true},
     straatnr: {type: Number, required: true},
@@ -17,7 +18,8 @@ const donuttelloSchema = new Schema({
     donutGlazuur : {type: String , required: true},
     logo : {type: String},
     ready: {type: Boolean},
-    hoeveelheid: {type: Number, required: true}
+    hoeveelheid: {type: Number, required: true},
+    datum: {type: Date, default: Date.now}
 });
 
 const Donut = mongoose.model('Donut', donuttelloSchema);

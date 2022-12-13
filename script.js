@@ -73,7 +73,7 @@ else {
             `
             document.querySelector(".donuts").insertAdjacentHTML("afterend", donut);
 
-
+            //de donut komt in de database
 
 
         }

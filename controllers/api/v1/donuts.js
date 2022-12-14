@@ -1,9 +1,19 @@
 const Donut = require('../../../models/Donuts');
+const cloudinary = require('../../../utils/cloudinary');
+
+
 //upload image
   
 
 
-let create = (req, res, next) => {
+/*let create =  async (req, res, next) => {
+
+    let result = await cloudinary.uploader.upload(req.body.logo, {
+
+        folder: logo,
+        width: 300,
+        crop: "scale"
+    })  
 
     let donut = new Donut();
     donut.donutNaam = req.body.donutNaam;
@@ -23,12 +33,15 @@ let create = (req, res, next) => {
     donut.logo = req.body.logo;
     donut.ready = false;
     donut.hoeveelheid = req.body.hoeveelheid;
+    donut.datum = req.datum;
+
+    
     
 
--
     donut.save((err,doc) => {
 
         if(!err) {
+        
         res.json({
 
             "status": "success",
@@ -48,7 +61,69 @@ let create = (req, res, next) => {
 
 
    
-    }
+    }*/
+
+let createDonut = (req, res) => {
+
+    const {donutNaam, bedrijfsnaam, straat, straatnr, postcode, gemeente, telefoon, email, donutDeeg, donutVulling, donutTopping, donutGlazuur, logo, ready, hoeveelheid, datum} = req.body;
+
+    try {
+        const result = cloudinary.uploader.upload(logo, {
+            folder: "logo",
+            width: 300,
+            crop: "scale"
+        }
+        )
+    const donut =  Donut.create({
+
+        donutNaam,
+        bedrijfsnaam,
+        straat,
+        straatnr,
+        postcode,
+        gemeente,
+        telefoon,
+        email,
+        donutDeeg,
+        donutVulling,
+        donutTopping,
+        donutGlazuur,
+        logo: {
+            public_id: result.public_id,
+            url: result.secure_url
+
+        },
+        ready,
+        hoeveelheid,
+        datum
+        
+
+    })
+    res.json({
+        "status": "success",
+        "data": {
+            "donut": donut
+        }
+
+    })
+
+
+}
+catch(err) {
+    res.json({
+        "status": "error",
+        "message": err
+    })
+}
+
+
+
+}
+
+
+
+
+
 
 let getAll = (req, res) => {
 
@@ -127,8 +202,9 @@ let updateStatus = (req, res) => {
 
 
 
-    module.exports.create = create;
+    //module.exports.create = create;
     module.exports.getAll = getAll;
     module.exports.getOne = getOne;
     module.exports.deleteOne = deleteOne;
     module.exports.updateStatus = updateStatus;
+    module.exports.createDonut = createDonut;

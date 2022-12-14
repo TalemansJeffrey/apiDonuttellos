@@ -5,7 +5,7 @@ const donutController = require('../../../controllers/api/v1/donuts');
 const passport = require('../../../passport/passport');
 
 
-router.post("/",donutController.create);
+router.post("/",donutController.createDonut);
     
 router.get("/",donutController.getAll);
 

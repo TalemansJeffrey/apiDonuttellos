@@ -1,3 +1,6 @@
+let datum = Date.now();
+
+
 
 let button = document.querySelector(".submitDonut").addEventListener("click", (e)=> {
 
@@ -15,6 +18,10 @@ let postcode = document.querySelector('#postcode').value;
 let woonplaats = document.querySelector('#woonplaats').value;
 let logo = document.querySelector('#logo').value;
 
+
+let donutNaam = document.querySelector('#donutNaam').value;
+
+
 console.log(logo);
 
 //kijk of de velden ingevuld zijn
@@ -31,6 +38,7 @@ else {
         }
         ,
         body: JSON.stringify({
+            "donutNaam": donutNaam,
             "donutDeeg": donutDeeg,
             "donutVulling": donutVulling,
             "donutGlazuur": donutGlazuur,
@@ -44,7 +52,13 @@ else {
             "gemeente": woonplaats,
             "logo": logo,
             "ready": "false",
-            "hoeveelheid": "5"
+            "hoeveelheid": "5",
+            //datum now
+            "datum": datum
+
+
+
+            
             
         })
         

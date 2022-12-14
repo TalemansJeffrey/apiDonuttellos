@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken'); //webtoken
 const config = require('config'); //config
 
 
-/*const signup = async (req, res) => {
+const signup = async (req, res) => {
 
     //token meegeven zodra je geresgisterd bent
     let username = req.body.username;
@@ -41,7 +41,7 @@ const config = require('config'); //config
 
 
 
-};*/
+};
 
 const login = async (req, res, next) => {
 
@@ -83,6 +83,25 @@ const login = async (req, res, next) => {
     };
     //if user is logged in and has a token, get the username and password from the token
     
+    const changePassword = (req, res) => {
+
+        
+    
+
+
+
+
+    
+    };
+
+
+        
+        
+
+        
+
+        
+    
 
 
 
@@ -95,5 +114,27 @@ const login = async (req, res, next) => {
 
 
 
-//module.exports.signup = signup;
+
+
+
+
+
+
+    
+   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+module.exports.signup = signup;
 module.exports.login = login;
+module.exports.changePassword = changePassword;

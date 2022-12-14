@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
+
+
 const donuttelloSchema = new Schema({
     donutNaam: {type: String, required: true},
     bedrijfsnaam: {type: String, required: true},
@@ -16,7 +18,7 @@ const donuttelloSchema = new Schema({
     donutVulling : {type: String , required: true},
     donutTopping : {type: String , required: true},
     donutGlazuur : {type: String , required: true},
-    logo : {type: String},
+    logo : {public_id: {type: String}, url: {type: String}},
     ready: {type: Boolean},
     hoeveelheid: {type: Number, required: true},
     datum: {type: Date, default: Date.now}

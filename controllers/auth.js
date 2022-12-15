@@ -82,8 +82,66 @@ const login = async (req, res, next) => {
             
     };
     //if user is logged in and has a token, get the username and password from the token
-    
-    const changePassword = (req, res) => {
+    const updatePassword = async (req, res) => {
+        User.findOne({_id: req.user.uid}, (err, user) => {
+
+            if (err) {
+                res.json({
+                    "status": "error",
+                    "message": err
+                })
+            
+            }
+            else {
+                if (!user) {
+                    res.json({
+                        "status": "error",
+                        "message": "User not found"
+                    })
+                }
+                else {
+                    user.setpassword(req.body.password, (err,user) =>{
+                        if (err) {
+                            res.json({
+                                "status": "error",
+                                "message": err
+                            })
+                        }
+                        else {
+                            user.save((err) => {
+                                if (err) {
+                                    res.json({
+                                        "status": "error",
+                                        "message": err
+                                    })
+                                }
+                                else {
+                                    res.json({
+                                        "status": "success",
+                                        "message": "Password changed"
+                                    })
+                                }
+                            })
+                        }
+
+
+
+                    })
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+        })
 
         
     
@@ -137,4 +195,4 @@ const login = async (req, res, next) => {
 
 module.exports.signup = signup;
 module.exports.login = login;
-module.exports.changePassword = changePassword;
+module.exports.updatePassword = updatePassword;

@@ -6,14 +6,8 @@ const cloudinary = require('../../../utils/cloudinary');
   
 
 
-/*let create =  async (req, res, next) => {
-
-    let result = await cloudinary.uploader.upload(req.body.logo, {
-
-        folder: logo,
-        width: 300,
-        crop: "scale"
-    })  
+let create =  async (req, res, next) => {
+  
 
     let donut = new Donut();
     donut.donutNaam = req.body.donutNaam;
@@ -30,7 +24,10 @@ const cloudinary = require('../../../utils/cloudinary');
     donut.donutGlazuur = req.body.donutGlazuur;
     //donutlogo wordt opgeslagen in de database en naar uploads gestuurd
     //donut.logo = req.file.filename;
+    //gebruik cloudinary en sla de url op in variabele logo en voeg deze toe aan de database
+    //const result = await cloudinary.uploader.upload(req.file.path);
     donut.logo = req.body.logo;
+    //donut.logo = req.body.logo;
     donut.ready = false;
     donut.hoeveelheid = req.body.hoeveelheid;
     donut.datum = req.datum;
@@ -61,8 +58,8 @@ const cloudinary = require('../../../utils/cloudinary');
 
 
    
-    }*/
-
+    }
+/*
 let createDonut = (req, res) => {
 
     const {donutNaam, bedrijfsnaam, straat, straatnr, postcode, gemeente, telefoon, email, donutDeeg, donutVulling, donutTopping, donutGlazuur, logo, ready, hoeveelheid, datum} = req.body;
@@ -120,7 +117,7 @@ catch(err) {
 
 }
 
-
+*/
 
 
 
@@ -202,9 +199,9 @@ let updateStatus = (req, res) => {
 
 
 
-    //module.exports.create = create;
+module.exports.create = create;
     module.exports.getAll = getAll;
     module.exports.getOne = getOne;
     module.exports.deleteOne = deleteOne;
     module.exports.updateStatus = updateStatus;
-    module.exports.createDonut = createDonut;
+    //module.exports.createDonut = createDonut;

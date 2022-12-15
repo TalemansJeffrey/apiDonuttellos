@@ -1,5 +1,34 @@
-let datum = Date.now();
+let logoUrl;
 
+let createUrl = () => {
+    let logo = document.querySelector('#logo').value;
+
+    let formData = new FormData();
+    formData.append('file', logo);
+    formData.append('upload_preset', 'donuttello');
+    fetch("https://api.cloudinary.com/v1_1/dq2ctla9j/image/upload", { 
+        method: "POST",
+        body: formData
+
+})
+.then(response => {
+    return response.json();
+})
+.then(json => {
+    console.log(json);
+    logoUrl = json.secure_url;
+    console.log(logoUrl);
+})
+}
+
+logoUrl = "https://donuttelloapi.onrender.com"
+
+
+
+
+
+
+let datum = Date.now();
 
 
 let button = document.querySelector(".submitDonut").addEventListener("click", (e)=> {
@@ -33,8 +62,7 @@ else {
     fetch('https://donuttelloapi.onrender.com/api/v1/donuts', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-
+            'Content-Type': 'application/json'
         }
         ,
         body: JSON.stringify({
@@ -50,7 +78,7 @@ else {
             "straatnr": huisnr,
             "postcode": postcode,
             "gemeente": woonplaats,
-            "logo": logo,
+            "logo": logoUrl,
             "ready": "false",
             "hoeveelheid": "5",
             //datum now

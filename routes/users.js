@@ -7,7 +7,7 @@ const authController = require('../controllers/auth');
 
 router.post('/signup', authController.signup);  
 router.post('/login', authController.login); 
-router.put('/update', authController.changePassword);
+router.put('/update', authController.updatePassword);
 
 
 

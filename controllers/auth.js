@@ -82,66 +82,43 @@ const login = async (req, res, next) => {
             
     };
     //if user is logged in and has a token, get the username and password from the token
-    const updatePassword = async (req, res) => {
-        User.findOne({_id: req.user.uid}, (err, user) => {
+    const updatePassword =  (req, res) => {
 
-            if (err) {
+        
+        //get the username out of the body
+        let username = req.body.username;
+        //find the user with the username
+        User
+        .findOne({username : username}). then (user => {
+            //set the password
+            user.setPassword(req.body.password).then(() => {
+                //save the user
+                user.save().then(result => {
+                    res.json({
+                        "status": "success",
+                        "data": {
+                            "user": result
+                        }
+                    })
+                }).catch(err => {
+                    res.json({
+                        "status": "error",
+                        "message": err
+                    })
+                })
+            }).catch(err => {
                 res.json({
                     "status": "error",
                     "message": err
                 })
-            
-            }
-            else {
-                if (!user) {
-                    res.json({
-                        "status": "error",
-                        "message": "User not found"
-                    })
-                }
-                else {
-                    user.setpassword(req.body.password, (err,user) =>{
-                        if (err) {
-                            res.json({
-                                "status": "error",
-                                "message": err
-                            })
-                        }
-                        else {
-                            user.save((err) => {
-                                if (err) {
-                                    res.json({
-                                        "status": "error",
-                                        "message": err
-                                    })
-                                }
-                                else {
-                                    res.json({
-                                        "status": "success",
-                                        "message": "Password changed"
-                                    })
-                                }
-                            })
-                        }
-
-
-
-                    })
-                }
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-        })
+            })
+        }).catch(err => {
+            res.json({
+                "status": "error",
+                "message": err
+            })
+        }
+     
 
         
     
@@ -149,7 +126,7 @@ const login = async (req, res, next) => {
 
 
 
-    
+        )
     };
 
 

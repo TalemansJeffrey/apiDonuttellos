@@ -5,7 +5,7 @@ function imageUpload() {
     let reader = new FileReader();
     
     reader.onload = function () {
-        base64String = reader.result.replace("data:", "". replace(/^.+,/, ""));
+        base64String = reader.result;
         imageBase64Stringrep = base64String;
         console.log(base64String);
     }
@@ -103,7 +103,7 @@ else {
     ).then(json => {
         if (json.status === "success") {
             let donut = `<div class="donuts">
-            <img src="${base64String}" alt="donut">
+            <img src="${json.data.donut.logo}" alt="donut">
             <h2>${json.data.donut.bedrijfsnaam}</h2>
             <p>${json.data.donut.donutDeeg}</p>
             <p>${json.data.donut.donutVulling}</p>

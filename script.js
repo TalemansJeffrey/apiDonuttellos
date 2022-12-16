@@ -48,7 +48,7 @@ let postcode = document.querySelector('#postcode').value;
 let woonplaats = document.querySelector('#woonplaats').value;
 //let logo = document.querySelector('#logo').value;
 
-console.log(base64String);
+console.log(imageBase64Stringrep);
 
 let donutNaam = document.querySelector('#donutNaam').value;
 //console.log(logoUrl);

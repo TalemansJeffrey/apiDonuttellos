@@ -18,7 +18,7 @@ const donuttelloSchema = new Schema({
     donutVulling : {type: String , required: true},
     donutTopping : {type: String , required: true},
     donutGlazuur : {type: String , required: true},
-    logo : {public_id: {type: String}, url: {type: String}},
+    logo :  {type: String},
     ready: {type: Boolean},
     hoeveelheid: {type: Number, required: true},
     datum: {type: Date, default: Date.now}

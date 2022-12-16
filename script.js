@@ -1,27 +1,22 @@
-let logoUrl;
+let base64String = "";
 
-let createUrl = () => {
-    let logo = document.querySelector('#logo').value;
+function imageUpload() {
+    let file = document.querySelector("#logo").files[0];
+    let reader = new FileReader();
+    
+    reader.onload = function () {
+        base64String = reader.result.replace("data:", "". replace(/^.+,/, ""));
+        imageBase64Stringrep = base64String;
+        console.log(base64String);
+    }
+    reader.readAsDataURL(file);
 
-    let formData = new FormData();
-    formData.append('file', logo);
-    formData.append('upload_preset', 'donuttello');
-    fetch("https://api.cloudinary.com/v1_1/dq2ctla9j/image/upload", { 
-        method: "POST",
-        body: formData
-
-})
-.then(response => {
-    return response.json();
-})
-.then(json => {
-    console.log(json);
-    logoUrl = json.secure_url;
-    console.log(logoUrl);
-})
 }
 
-logoUrl = "https://donuttelloapi.onrender.com"
+
+
+
+
 
 
 
@@ -31,7 +26,13 @@ logoUrl = "https://donuttelloapi.onrender.com"
 let datum = Date.now();
 
 
+
 let button = document.querySelector(".submitDonut").addEventListener("click", (e)=> {
+
+
+
+
+
 
 let donutDeeg = document.querySelector('#donutDeeg').value;
 let donutVulling = document.querySelector('#donutVulling').value;
@@ -49,9 +50,10 @@ let logo = document.querySelector('#logo').value;
 
 
 let donutNaam = document.querySelector('#donutNaam').value;
+//console.log(logoUrl);
 
 
-console.log(logo);
+
 
 //kijk of de velden ingevuld zijn
 if (donutDeeg === "" || donutVulling === "" || donutGlazuur === "" || donutTopping === "" || bedrijfsnaam === "" || email === "" || telefoonnummer === "" || adres === "" || huisnr === "" || postcode === "" || woonplaats === "" || logo === "") {
@@ -59,6 +61,11 @@ if (donutDeeg === "" || donutVulling === "" || donutGlazuur === "" || donutToppi
     
 }
 else {
+
+    imageUpload();
+
+
+
     fetch('https://donuttelloapi.onrender.com/api/v1/donuts', {
         method: 'POST',
         headers: {
@@ -78,7 +85,7 @@ else {
             "straatnr": huisnr,
             "postcode": postcode,
             "gemeente": woonplaats,
-            "logo": logoUrl,
+            "logo": base64String,
             "ready": "false",
             "hoeveelheid": "5",
             //datum now
@@ -96,7 +103,7 @@ else {
     ).then(json => {
         if (json.status === "success") {
             let donut = `<div class="donuts">
-            <img src="${json.data.donut.logo}" alt="donut">
+            <img src="${base64String}" alt="donut">
             <h2>${json.data.donut.bedrijfsnaam}</h2>
             <p>${json.data.donut.donutDeeg}</p>
             <p>${json.data.donut.donutVulling}</p>

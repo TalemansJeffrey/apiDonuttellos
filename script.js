@@ -1,5 +1,20 @@
 let base64String = "";
 
+
+
+let datum = Date.now();
+
+
+
+ document.querySelector(".submitDonut").addEventListener("click", (e)=> {
+
+    //check if image is uploaded
+    if (document.querySelector("#logo").files.length == 0) {
+        alert("Please upload an image");
+        return;
+    }
+    else {
+        
 function imageUpload() {
     let file = document.querySelector("#logo").files[0];
     let reader = new FileReader();
@@ -7,15 +22,16 @@ function imageUpload() {
     reader.onload = function () {
         base64String = reader.result;
         imageBase64Stringrep = base64String;
-        console.log(base64String);
+        return imageBase64Stringrep;
     }
     reader.readAsDataURL(file);
+    
 
-    let datum = Date.now();
+}
 
+    }
 
-
-let button = document.querySelector(".submitDonut").addEventListener("click", (e)=> {
+    imageUpload();
 
 
 let donutDeeg = document.querySelector('#donutDeeg').value;
@@ -32,6 +48,7 @@ let postcode = document.querySelector('#postcode').value;
 let woonplaats = document.querySelector('#woonplaats').value;
 //let logo = document.querySelector('#logo').value;
 
+console.log(base64String);
 
 let donutNaam = document.querySelector('#donutNaam').value;
 //console.log(logoUrl);
@@ -46,11 +63,11 @@ if (donutDeeg === "" || donutVulling === "" || donutGlazuur === "" || donutToppi
 }
 else {
 
-    imageUpload();
+    //imageUpload();
 
 
 
-    fetch('https://donuttelloapi.onrender.com/api/v1/donuts', {
+    fetch('https://localhost:3000/api/v1/donuts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -126,13 +143,6 @@ e.preventDefault();
 
 
             
-
-
-
-}
-
-
-
 
 
 

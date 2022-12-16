@@ -11,27 +11,11 @@ function imageUpload() {
     }
     reader.readAsDataURL(file);
 
-}
-
-
-
-
-
-
-
-
-
-
-
-let datum = Date.now();
+    let datum = Date.now();
 
 
 
 let button = document.querySelector(".submitDonut").addEventListener("click", (e)=> {
-
-
-
-
 
 
 let donutDeeg = document.querySelector('#donutDeeg').value;
@@ -46,7 +30,7 @@ let adres = document.querySelector('#adres').value;
 let huisnr = document.querySelector('#huisnr').value;
 let postcode = document.querySelector('#postcode').value;
 let woonplaats = document.querySelector('#woonplaats').value;
-let logo = document.querySelector('#logo').value;
+//let logo = document.querySelector('#logo').value;
 
 
 let donutNaam = document.querySelector('#donutNaam').value;
@@ -142,6 +126,13 @@ e.preventDefault();
 
 
             
+
+
+
+}
+
+
+
 
 
 

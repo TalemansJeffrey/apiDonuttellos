@@ -31,7 +31,7 @@ function imageUpload() {
 
     }
 
-    imageUpload();
+    //imageUpload();
 
 
 let donutDeeg = document.querySelector('#donutDeeg').value;

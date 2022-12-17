@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 
 
 const donuttelloSchema = new Schema({
+    donutPreview: {type: String},
     donutNaam: {type: String, required: true},
     bedrijfsnaam: {type: String, required: true},
     straat: {type: String, required: true},

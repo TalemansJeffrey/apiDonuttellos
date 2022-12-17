@@ -1,5 +1,5 @@
 const Donut = require('../../../models/Donuts');
-const cloudinary = require('../../../utils/cloudinary');
+//const cloudinary = require('../../../utils/cloudinary');
 
 
 //upload image
@@ -10,6 +10,7 @@ let create =  async (req, res, next) => {
   
 
     let donut = new Donut();
+    donut.donutPreview = req.body.donutPreview;
     donut.donutNaam = req.body.donutNaam;
     donut.bedrijfsnaam = req.body.bedrijfsnaam;
     donut.straat = req.body.straat;

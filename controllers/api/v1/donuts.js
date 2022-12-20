@@ -19,8 +19,6 @@ let create =  async (req, res, next) => {
     donut.gemeente = req.body.gemeente;
     donut.telefoon = req.body.telefoon;
     donut.email = req.body.email;
-    donut.donutDeeg = req.body.donutDeeg;
-    donut.donutVulling = req.body.donutVulling;
     donut.donutTopping = req.body.donutTopping;
     donut.donutGlazuur = req.body.donutGlazuur;
     //donutlogo wordt opgeslagen in de database en naar uploads gestuurd

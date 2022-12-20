@@ -15,8 +15,6 @@ const donuttelloSchema = new Schema({
     gemeente: {type: String, required: true },
     telefoon: {type: Number, allowed : [/^[0-9]{9}$/]},
     email: {type: String, required: true},
-    donutDeeg : {type: String, required: true},
-    donutVulling : {type: String , required: true},
     donutTopping : {type: String , required: true},
     donutGlazuur : {type: String , required: true},
     logo :  {type: String},

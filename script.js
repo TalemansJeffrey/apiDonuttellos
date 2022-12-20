@@ -38,7 +38,7 @@ let ctx = canvas.getContext("2d");
 let reader = new FileReader();
 let img = new Image();
 
-let uploadCanvas = e =>{
+//let uploadCanvas = e =>{
     reader.onload = () => {
         img.onload = () => {
             canvas.width = img.width;
@@ -49,9 +49,9 @@ let uploadCanvas = e =>{
     }
     reader.readAsDataURL(e.target.files[0]);
 
-};
-let imageeLoader = document.querySelector('#logo');
-imageeLoader.addEventListener('change', uploadCanvas);
+//};
+/*let imageeLoader = document.querySelector('#logo');
+imageeLoader.addEventListener('change', uploadCanvas);*/
 
 
 
@@ -59,10 +59,34 @@ imageeLoader.addEventListener('change', uploadCanvas);
 
 
 
-let cloudinaryAPI = "734646525192331";
+let cloudinaryAPI = "734646525192331";  
 let cloudName = "dq2ctla9j";
 let button = document.querySelector(".submitDonut");
  button.addEventListener("click", (e) => {
+
+    let canvas = document.querySelector("#canvas");
+let ctx = canvas.getContext("2d");
+let reader = new FileReader();
+let img = new Image();
+
+    reader.onload = () => {
+        img.onload = () => {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+                };
+                img.src = reader.result;
+    }
+    reader.readAsDataURL(e.target.files[0]);
+
+
+
+
+
+
+
+
+
 let preview = canvas.toDataURL("image/png");
 
 let formData = new FormData();

@@ -187,7 +187,18 @@ let updateStatus = (req, res) => {
         ready: req.body.ready
     })
     .then(doc => {
-        res.json(doc);
+        res.json({
+            "status": "success",
+            "data": {
+                "donut": doc
+            }
+                
+
+
+
+        });
+
+
     })
     .catch(err => {
         res.json(err);
